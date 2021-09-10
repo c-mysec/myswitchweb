@@ -1,0 +1,19 @@
+<div class="content" role="main">
+    <h2>Relays</h2>
+    <p>Lista de relays encontrados na rede WiFi</p>
+  
+    <div class="card-container">
+      <a *ngFor="let relay of relays" class="card" target="_blank" rel="noopener" (click)="click(relay['name'])">
+        <span>{{relay['name']}}</span>
+        <img *ngIf="relay['status'] == 0" style="margin-left:5px" class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" src="../../assets/bulb-off.png">
+        <img *ngIf="relay['status'] == 1" style="margin-left:5px" class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" src="../../assets/bulb-on.png">
+      </a>
+    </div>
+    <div class="card-container">
+        <!-- Highlight Card -->
+        <div class="card highlight-card card-small" (click)="broadcastBase64()" style="cursor:pointer">
+            <span><fa-icon [icon]="faRedoAlt"></fa-icon> Refresh</span>
+        </div>
+    </div>
+</div>
+  
